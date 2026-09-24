@@ -2,9 +2,12 @@ import os
 import requests
 from dataclasses import dataclass
 from typing import Optional, Dict
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
-load_dotenv()
 
 @dataclass
 class DatabricksConfig:
