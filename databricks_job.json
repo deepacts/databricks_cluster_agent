@@ -1,0 +1,23 @@
+{
+  "name": "Databricks Autonomous FinOps & Governance Specialist Scheduled Audit",
+  "email_notifications": {
+    "no_alert_for_canceled_runs": false
+  },
+  "webhook_notifications": {},
+  "timeout_seconds": 3600,
+  "schedule": {
+    "quartz_cron_expression": "0 0 8 * * ?",
+    "timezone_id": "UTC",
+    "pause_status": "UNPAUSED"
+  },
+  "tasks": [
+    {
+      "task_key": "run_autonomous_finops_audit",
+      "spark_python_task": {
+        "python_file": "cli.py",
+        "parameters": ["--audit"]
+      },
+      "serverless": true
+    }
+  ]
+}
