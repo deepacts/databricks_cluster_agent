@@ -41,4 +41,7 @@ def execute_agent_tool(tool_name: str, payload: Optional[Dict[str, Any]] = Body(
         raise HTTPException(status_code=400, detail=str(e))
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    import os
+    port = int(os.environ.get("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
+
